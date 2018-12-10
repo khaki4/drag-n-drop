@@ -25,13 +25,7 @@ const TaskList = styled.div`
   min-height: 100px;
 `;
 
-class InnerList extends React.Component {
-  shouldComponentUpdate(nextProps) {
-    if (nextProps.tasks === this.props.tasks) {
-      return false;
-    }
-    return true;
-  }
+class InnerList extends React.PureComponent {
   render() {
     return this.props.tasks.map((task, index) => (
       <Task key={task.id} task={task} index={index} />
